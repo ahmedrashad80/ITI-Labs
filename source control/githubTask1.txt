@@ -1,0 +1,78 @@
+Git is a distributed version control system used to track changes in code and collaborate on software development.
+    It allows multiple developers to work on the same project simultaneously, manage code versions, and revert to earlier 
+     versions when needed. Git is widely used for maintaining project history, branching, and merging code.
+
+2. Git is the same as GitHub? 
+False.
+
+Git is a version control tool used locally to manage code.
+GitHub is a cloud-based platform for hosting Git repositories, enabling collaboration...
+----------------------------------------------
+What is the command to get the installed version of Git?
+
+git --version
+-----------------------------------------------
+4.	Which option should you use to set the default user name for every repository on your computer?
+--global
+-----------------------------------------------
+5.	What is the command to set the user email for the current repository?
+
+git config user.email
+-------------------------------------------------
+•	What is the command to add all files and changes of the current folder to the staging environment of the Git repository?
+•	git add –all
+•	git add .
+---------------------------------------------------
+6.	What is the command to get the current status of the Git repository?
+•	git status
+----------------------------------------------------
+7.	What is the command to initialize Git on the current repository?
+•	git init
+-----------------------------------------------------
+8.Git automatically adds new files to the repository and starts tracking them.?
+  False
+--------------------------------------------------------
+9.What is the command to commit the staged changes for the Git repository?
+git commit -m "Your commit message"
+----------------------------------------------------------
+10.What is the command to commit with the message "New email":
+git commit -m "New email"
+----------------------------------------------------------
+11.What is the command to view the history of commits for the repository?
+git log
+----------------------------------------------------
+12.	In Git, a branch is:
+•	A separate version of the main repository
+------------------------------------------------------
+13.	What is the command to create a new branch named "new-email"?
+git branch new-email
+------------------------------------------------------------
+14.	What is the command to move to the branch named "new-email"?
+git checkout new-email
+ 
+we can create and move in one command 
+git checkout -b new-email
+------------------------------------------------------------
+15.	What is the command to merge the current branch with the branch "new-email"?
+git merge new-email
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
