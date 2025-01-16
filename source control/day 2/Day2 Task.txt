@@ -1,0 +1,92 @@
+1-Make a project deployment.
+---------------------------------------
+2-what is pull request and request & differrent bettween them?
+A pull request (PR) is a feature in version control systems like GitHub, GitLab, and Bitbucket. It allows developers 
+   to propose changes they've made in a branch of a repository to be merged into another branch (commonly the main or master branch).
+   It's a critical part of collaborative software development.
+
+A request, in general terms, refers to asking or submitting for something. In the context of software development or GitHub
+--------------------------------------------------------------------------
+3-Make fork from your project and use it from anthor account
+
+--------------------------------------------------------------------------- 
+4-What is the command to delete the branch "new-email"
+remote :git push origin --delete new-email
+local :git branch -d new-email
+----------------------------------------------------------------------
+5-What is the command to push the current repository to the remote origin?
+git push origin main
+---------------------------------------------------------------------------
+6-what is git Rebase and how to use it ?
+Git rebase is a command used to integrate changes from one branch into another by moving or reapplying commits. 
+Unlike git merge, which combines the histories of two branches, git rebase rewrites the commit history to create a linear progression of changes.
+
+Rebasing is often used to:
+-Clean up commit history.
+-Keep a feature branch up-to-date with the latest changes from the base branch (e.g., main).
+-Simplify history for cleaner merges.
+git checkout <branch>
+git rebase < base branch>
+
+----------------------------------------------------------------------------
+7-What is the command to get all the change history of the remote repository "origin"?
+git fetch origin
+--------------------------------------------------------------------------------
+8-What is the command to show the differences between the current branch and the branch "new-email"?
+git diff new-email
+------------------------------------------------------------------------------------
+9-what is tags and Make five tags and release two of them?
+Tags in Git are references to specific points in the repository’s history. They are often used to mark important commits, such as version releases. There are two types of tags:
+
+1-Lightweight Tags: Just a pointer to a commit, without additional metadata.
+2-Annotated Tags: Stored as full objects in Git with metadata like a tagger name, email, and message.
+
+--make five tag--
+   light weight tags
+     git tag v1.0
+     git tag v2.0
+   annotated tags
+     git tag -a v3.0 -m "Version 3.0 release"
+     git tag -a v4.0 -m "Version 4.0 release"
+     git tag -a v5.0 -m "Version 5.0 release"
+
+--release two tags--
+     git push origin v3.0
+     git push origin v4.0
+
+
+
+
+---------------------------------------------------------------------------------
+
+
+Bouns :
+Make SSh to your repo.
+SSH (Secure Shell) keys are used to establish a secure connection between your computer and GitHub,
+ allowing you to perform Git operations without needing to enter your password every time.
+
+1. Create a New SSH Key
+ssh-keygen -t ed25519 -C "your_email"
+
+cat ~/.ssh/id_ed25519.pub
+
+then add the key to your github from sitting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
