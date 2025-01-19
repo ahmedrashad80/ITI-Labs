@@ -216,10 +216,24 @@ console.log(countCharacters("hello"));
 // Input: [5, 3, 8, 1, 2]
 // Output: [1, 2, 3, 5, 8]
 
+// function sortNumbers(arr) {
+//   return arr.sort((a, b) => a - b);
+// }
+// console.log(sortNumbers([5, 3, 8, 1, 2]));
 function sortNumbers(arr) {
-  return arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let value = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = value;
+      }
+      console.log(arr);
+    }
+  }
+  return arr;
 }
-console.log(sortNumbers([5, 3, 8, 1, 2]));
+console.log(sortNumbers([5, 2, 1, 4]));
 // 16. Write a function to check if a given string is an anagram of another string
 // (i.e., contains the same characters in a different order).
 // Input: "listen", "silent"
