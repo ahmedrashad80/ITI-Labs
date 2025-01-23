@@ -18,5 +18,6 @@ userRoutes.post(
   upload.single("image"),
   userService.uploadImage
 );
+userRoutes.put("/", userService.updateUser);
 
 export default userRoutes;

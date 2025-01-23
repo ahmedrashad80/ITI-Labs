@@ -1,5 +1,6 @@
 import connection from "./DB/connection.js";
 import authRoutes from "./modules/auth/auth.controller.js";
+import messageRoutes from "./modules/message/message.controller.js";
 import userRoutes from "./modules/user/user.controller.js";
 
 const bootstrap = (app, express) => {
@@ -10,6 +11,8 @@ const bootstrap = (app, express) => {
   });
   app.use("/auth", authRoutes);
   app.use("/user", userRoutes);
+  app.use("/message", messageRoutes);
+
   connection();
   //   if the route doesn't exist then 404
   app.all("*", (req, res) => {

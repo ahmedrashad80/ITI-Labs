@@ -2,10 +2,14 @@ import userModel from "../../../DB/models/user.model.js";
 import * as bcrypt from "bcrypt";
 import * as crypto from "crypto";
 import nodemailer from "nodemailer";
+import jwt from "jsonwebtoken";
+
+export let token;
 export const register = async (req, res) => {
   try {
     const { userName, email, password, confirmPassword, phone } = req.body;
     console.log(req.body);
+
     if (password != confirmPassword) {
       return res
         .status(422)
@@ -61,6 +65,10 @@ export const register = async (req, res) => {
 
     const objectUser = user.toObject();
     delete objectUser.password;
+    token = jwt.sign(
+      { id: user._id, isLoggedIn: true },
+      process.env.CONFIRM_EMAIL
+    );
 
     res.status(200).json({ massage: "welcome to register", objectUser });
   } catch (err) {
@@ -81,8 +89,12 @@ export const login = async (req, res) => {
     }
     const objectUser = user.toObject();
     delete objectUser.password;
+    token = jwt.sign(
+      { id: user._id, isLoggedIn: true },
+      process.env.TOKEN_SECRET_KEY
+    );
 
-    res.status(200).json({ massage: "welcome to saraha", objectUser });
+    res.status(200).json({ massage: "welcome to saraha", token });
   } catch (err) {
     res.status(500).json({ massage: "server error", error: err.message });
   }
@@ -93,6 +105,7 @@ export const confirmEmail = async (req, res) => {
     const { id } = req.params;
 
     const user = await userModel.findById(id);
+    // user is document from database so when use user.save() i match with db  (async process)
     if (!user) {
       return res.status(404).json({ message: "Invalid confirmation link" });
     }
