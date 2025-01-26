@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+}
+span {
+  top: -80%;
+  right: -34%;
+  /* background-color: black; */
+  padding: 5px;
+  font-size: 20px;
+  color: #16282e;
+  font-weight: bold;
+}

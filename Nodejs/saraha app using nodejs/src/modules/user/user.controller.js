@@ -1,5 +1,6 @@
 import { Router } from "express";
 import * as userService from "./services/user.services.js";
+import { authenticateToken } from "../../utilites/authMiddleware.js";
 import multer from "multer";
 const userRoutes = Router();
 const storage = multer.diskStorage({
@@ -16,8 +17,9 @@ const upload = multer({ storage });
 userRoutes.post(
   "/upload-image",
   upload.single("image"),
+  authenticateToken,
   userService.uploadImage
 );
-userRoutes.put("/", userService.updateUser);
+userRoutes.put("/", authenticateToken, userService.updateUser);
 
 export default userRoutes;

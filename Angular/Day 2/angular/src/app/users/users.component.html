@@ -1,0 +1,50 @@
+<div class="mb-3 container">
+  <h1>users</h1>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search by Email"
+    [(ngModel)]="searchEmail"
+  />
+
+  <div class="input-group-append m-3">
+    <button class="btn btn-primary m-2" (click)="searchUser(searchEmail)">
+      Search
+    </button>
+    <button class="btn btn-secondary" (click)="resetSearch()">Reset</button>
+  </div>
+</div>
+
+<div class="row p-5">
+  @for (user of users; track user.id){
+
+  <div class="col-md-4 mb-4 d-flex">
+    <div class="card shadow-sm">
+      <img
+        class="card-img-top rounded-top"
+        [src]="user.image"
+        alt="Card image cap"
+      />
+
+      <div class="card-body">
+        <div
+          class="chip chip-md"
+          [ngClass]="
+            user.role === 'admin'
+              ? 'chip-red'
+              : user.role === 'user'
+              ? 'chip-green'
+              : 'chip-yellow'
+          "
+        >
+          {{ user.role }}
+        </div>
+        <h5 class="card-title">{{ user.username }}</h5>
+        <p class="card-text">Email: {{ user.email }}</p>
+        <p class="card-text">Phone: {{ user.phone }}</p>
+        <p class="card-text">Birthdate: {{ user.birthDate }}</p>
+      </div>
+    </div>
+  </div>
+  }
+</div>

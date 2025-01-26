@@ -1,0 +1,13 @@
+<ol class="p-5">
+  @for (task of tasks ; track $index){
+  <li [ngClass]="task.completed ? 'completed' : ''">
+    <!-- <li [class.completed]="task.completed"> -->
+    {{ task.name }}
+  </li>
+  <button (click)="deleteTask(tasks.indexOf(task))">Delete</button>
+  <button (click)="markAsCompleted(tasks.indexOf(task))">
+    {{ task.completed ? "Undo" : "Complete" }}
+  </button>
+
+  }
+</ol>

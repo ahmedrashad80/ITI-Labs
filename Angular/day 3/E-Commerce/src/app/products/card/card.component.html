@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row p-5 main-section">
+    @for(product of productsItems; track product.id){
+
+    <div class="card text-center position-relative" style="width: 18rem">
+      <div class="position-absolute stock">
+        @if(product.stock === 0){
+        <span class="badge bg-danger p-2">Out of Stock</span>
+        } @else {
+        <span class="badge bg-success p-2">In Stock {{ product.stock }}</span>
+        }
+      </div>
+      <img [src]="product.images[0]" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <span class="fw-bold text-secondary"> {{ product.rating }}$ </span>
+        </div>
+        <p class="card-text">
+          {{ product.description }}
+        </p>
+        <p class="m-auto fw-bold">
+          rating: <span class="fw-700"> {{ product.rating }}</span>
+        </p>
+        <div class="stars">
+          @for (star of stars;track $index ) { @if (star <= product.rating) {
+          <i class="fa-solid fa-star fa-sm" style="color: #ffd43b"></i>
+          } @else {
+          <i class="fa-regular fa-star fa-sm" style="color: #ffd43b"></i>
+          } }
+        </div>
+        <button>add to cart</button>
+      </div>
+    </div>
+
+    }
+  </div>
+</div>

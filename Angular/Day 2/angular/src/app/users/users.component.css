@@ -1,0 +1,27 @@
+.chip {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.chip-red {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.chip-green {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.chip-yellow {
+  background-color: #f1c40f;
+  color: black;
+}
+img {
+  max-width: 150px;
+  border-radius: 50%;
+
+  margin: auto;
+}
