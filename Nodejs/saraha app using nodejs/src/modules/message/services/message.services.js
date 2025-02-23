@@ -29,6 +29,7 @@ export const getMessages = async (req, res) => {
 export const addMessage = async (req, res) => {
   try {
     const { message, receiverId } = req.body;
+    // console.log(req.user);
 
     if (!message || !receiverId) {
       return res

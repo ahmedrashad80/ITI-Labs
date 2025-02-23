@@ -16,8 +16,8 @@ const upload = multer({ storage });
 
 userRoutes.post(
   "/upload-image",
-  upload.single("image"),
   authenticateToken,
+  upload.single("image"),
   userService.uploadImage
 );
 userRoutes.put("/", authenticateToken, userService.updateUser);

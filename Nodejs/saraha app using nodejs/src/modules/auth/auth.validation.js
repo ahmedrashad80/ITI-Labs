@@ -9,7 +9,11 @@ export const signUpValidation = joi
     password: joi
       .string()
       .min(8)
-      // .pattern(new RegExp(/^[A-z][a-z0-9]$/))
+      .pattern(
+        new RegExp(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/
+        )
+      )
       .required(),
     confirmPassword: joi.string().valid(joi.ref("password")).required(),
     phone: joi.string().optional().allow(null, ""),

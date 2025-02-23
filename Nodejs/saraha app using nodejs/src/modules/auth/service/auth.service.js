@@ -4,7 +4,7 @@ import * as crypto from "crypto";
 import nodemailer from "nodemailer";
 import jwt from "jsonwebtoken";
 
-export let token;
+// export let token;
 export const register = async (req, res) => {
   try {
     const { userName, email, password, confirmPassword, phone } = req.body;
@@ -65,12 +65,12 @@ export const register = async (req, res) => {
 
     const objectUser = user.toObject();
     delete objectUser.password;
-    token = jwt.sign(
+    const token = jwt.sign(
       { id: user._id, isLoggedIn: true },
       process.env.CONFIRM_EMAIL
     );
 
-    res.status(200).json({ massage: "welcome to register", objectUser });
+    res.status(200).json({ massage: "created", objectUser });
   } catch (err) {
     res.status(500).json({ massage: "server error", err });
   }
@@ -89,12 +89,12 @@ export const login = async (req, res) => {
     }
     const objectUser = user.toObject();
     delete objectUser.password;
-    token = jwt.sign(
+    const token = jwt.sign(
       { id: user._id, isLoggedIn: true },
       process.env.TOKEN_SECRET_KEY
     );
 
-    res.status(200).json({ massage: "welcome to saraha", token });
+    res.status(200).json({ massage: "success login", token });
   } catch (err) {
     res.status(500).json({ massage: "server error", error: err.message });
   }
